@@ -1,0 +1,5 @@
+*/
+!lib/
+!.gitignore
+!package.json
+!index.js

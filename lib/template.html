@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>pip.fyi</title>
+    <script type="text/javascript">
+      function copy() {
+        const input = document.getElementById('short');
+        input.select();
+        input.setSelectionRange(0, 9999999);
+        document.execCommand('copy');
+      }
+    </script>
+    <style>
+      * {
+        font-family: Verdana, Arial, SansSerif;
+      }
+      body {
+        text-align: center;
+      }
+      h1 {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+      form {
+        display: grid;
+        grid-column-gap: 1em;
+        grid-template-columns: auto 5em;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      form input {
+        grid-column: 1;
+      }
+      form button {
+        grid-column: 2;
+      }
+      form.response.unfilled, form.request.filled {
+        display: none;
+      }
+      form.response.filled, form.request.unfilled {
+        display:grid;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>pip.fyi</h1>
+    <form id="shortener" method="GET" class="request ${filled}">
+      <input name="url" placeholder="URL" value="${url}"/>
+      <button type="submit" form="shortener">shorten</button>
+    </form>
+   <form class="response ${filled}">
+     <input id="short" value="${link}" readonly/>
+     <button onclick="copy()">copy</button>
+   </form>
+  </body>
+</html>
